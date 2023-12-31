@@ -73,7 +73,7 @@
  
   - name: load catalogue data
     ansible.builtin.command: mongo --host mongodb.raviskingdom.online < /app/schema/catalogue.js
-    when: product_count.stdout == "0"    #keep double quotes
+    when: product_count.stdout == "0"    #keep double quotes as json o/p is in strings , 0 means not exist, 1 means present
 
   - name: start and enable catalogue
     ansible.builtin.service:
